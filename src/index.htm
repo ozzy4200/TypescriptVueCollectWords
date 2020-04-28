@@ -1,16 +1,24 @@
 <!doctype html>
 <html lang="en-US">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Coding Template</title>
-  <link rel="stylesheet" type="text/css" href="bundle.css">
+  <title>Collect words</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
-  <h1>Webpack - TypeScript - Scss</h1>
-  <h2>TypeScript Hello World</h2>  
-  <div id="content"></div>
-    
+  <h1>Collect words</h1>
+
+  <div id="app" style="border: 1pt; border-style: solid; padding: 20pt">
+    <input v-model="word" type="text" placeholder="Type a word" />
+    <button v-on:click="save">Save</button>
+    <!--button v-on:click="show">Show</button-->
+    <!-- Not necessary. Using computed property -->
+    <button v-on:click="clear">Clear</button>
+    <div>{{ output }}</div>
+  </div>
+
   <script src="bundle.js"></script>
 </body>
 </html>

@@ -1,12 +1,27 @@
-interface Person {
-    firstName: string;
-    lastName: string;
-}
-
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
-let user: Person = { firstName: "John", lastName: "Doe" };
-
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-element.innerHTML = greeter(user);
+new Vue({
+    el: "#app",
+    data: {
+        word: "",
+        words: []
+        //output: ""
+    },
+    methods: {
+        save: function () {
+            this.words.push(this.word)
+        },
+        // show: function () { },
+        // not necessary. Using computed property
+        clear: function () {
+            this.words = []
+        }
+    },
+    computed: { // computed property 
+        // https://vuejs.org/v2/guide/computed.html
+        output: function () {
+            if (this.words.length == 0) {
+                return "empty";
+            }
+            return this.words.toString();
+        }
+    }
+})
